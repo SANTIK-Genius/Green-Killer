@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://gd58knpntdr2"]
+
+[ext_resource type="Script" path="res://Target/Target.gd" id="1_iqk5p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_itt8f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c0ijp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uu7gn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdo87"]
+size = Vector2(29, 72)
+
+[node name="Npc" type="CharacterBody2D" groups=["npc"]]
+script = ExtResource("1_iqk5p")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_itt8f")
+
+[node name="DetectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+position = Vector2(-3, 28)
+scale = Vector2(4.89439, 2.53585)
+shape = SubResource("CapsuleShape2D_c0ijp")
+debug_color = Color(0.81522, 0.356466, 0.521022, 0.42)
+
+[node name="VisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea"]
+position = Vector2(146, 25)
+scale = Vector2(14.644, 2.37201)
+shape = SubResource("CapsuleShape2D_uu7gn")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 28)
+shape = SubResource("RectangleShape2D_fdo87")
+debug_color = Color(0.292945, 0.612234, 0.42208, 0.42)
